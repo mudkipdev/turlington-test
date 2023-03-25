@@ -9,7 +9,7 @@ intents.members = True
 bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
 
-class joinleave(commands.Cog):
+class Joinleave(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
@@ -42,4 +42,4 @@ class joinleave(commands.Cog):
         await channel.send(embed=embed)
 
 async def setup(bot):
-    await bot.add_cog(joinleave(bot))
+    await bot.add_cog(Joinleave(bot))

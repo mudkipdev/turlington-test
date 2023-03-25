@@ -8,7 +8,7 @@ intents.members = True
 bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
 
-class responses(commands.Cog):
+class Responses(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
@@ -52,4 +52,4 @@ class responses(commands.Cog):
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
 async def setup(bot):
-    await bot.add_cog(responses(bot))
+    await bot.add_cog(Responses(bot))

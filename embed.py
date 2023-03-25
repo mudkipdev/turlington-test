@@ -8,7 +8,7 @@ intents.members = True
 bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
 
-class embed(commands.Cog):
+class Embed(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
@@ -45,4 +45,4 @@ class embed(commands.Cog):
         await ctx.send(embed=embed)
 
 async def setup(bot):
-    await bot.add_cog(embed(bot))
+    await bot.add_cog(Embed(bot))
