@@ -19,8 +19,8 @@ class responses(commands.Cog):
         if bot.user.mentioned_in(message):
             await message.channel.send(f"Hello! I am Turlington, say `?command` for more info on what I can do! If you are having any issues with my functions please tag ian `<@288522211164160010>`.")
 
-    @bot.command()
-    async def commands(ctx):
+    @bot.command(name= "commands")
+    async def _commands(ctx):
         await ctx.send("__All commands use ? prefix__ \n**ping** - check the status of Turlington\n**mcserver** - provides minecraft server details \n**mcserverstatus** - shows current TNF Minecraft server status\n**redmserver** - provides redmserver details" )
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
