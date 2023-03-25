@@ -10,7 +10,6 @@ intents = discord.Intents.all()
 intents.message_content = True
 intents.members = True 
 
-bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
 
 class Moderation(commands.Cog):
