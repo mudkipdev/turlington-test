@@ -3,7 +3,7 @@ import asyncio
 import datetime
 from discord.ext import commands
 
-with open("bad_words.txt") as file: # bad-words.txt contains one blacklisted phrase per line
+with open("bad_words.txt") as file:
     bad_words = [bad_word.strip().lower() for bad_word in file.readlines()]
 
 intents = discord.Intents.all()
@@ -13,7 +13,7 @@ intents.members = True
 bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
 
-class moderation(commands.Cog):
+class Moderation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
@@ -124,4 +124,4 @@ class moderation(commands.Cog):
         await bot.process_commands(message)
 
 async def setup(bot):
-    await bot.add_cog(moderation(bot))
+    await bot.add_cog(Moderation(bot))

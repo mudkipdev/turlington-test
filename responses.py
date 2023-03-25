@@ -13,7 +13,7 @@ class responses(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @bot.listen
+    @bot.listen()
     async def mentioned(message: discord.Message) -> None:
         print('Turlington has been mentioned.')
         if bot.user.mentioned_in(message):
