@@ -122,3 +122,6 @@ class moderation(commands.Cog):
                 channel = bot.get_channel(1086293466054656100)
                 await channel.send(f"A censored word has been used by {message.author} and scrubbed from chat.")
         await bot.process_commands(message)
+
+async def setup(bot):
+    await bot.add_cog(moderation(bot))

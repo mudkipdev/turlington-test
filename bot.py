@@ -26,11 +26,13 @@ intents.members = True
 
 bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
+extensions = ("extensions.example",)
 
 @bot.event
-async def setup(bot):
-    await bot.load_extension('moderation.py')
-    await bot.load_extension('responses.py')
+async def setup_hook():
+    for extension in extensions:
+        await bot.load_extension('moderation')
+        await bot.load_extension('responses')
 
 @bot.event
 async def on_ready():

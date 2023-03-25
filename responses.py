@@ -51,3 +51,6 @@ class responses(commands.Cog):
             await bot.logout()
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
+
+async def setup(bot):
+    await bot.add_cog(responses(bot))
