@@ -26,14 +26,12 @@ intents.members = True
 
 bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
-extensions = ("extensions.example",)
+extensions = ("responses",'embed','joinleave','moderations',)
 
+@bot.event()
 async def setup_hook():
     for extension in extensions:
-        await bot.load_extension('moderation')
-        await bot.load_extension('responses')
-        await bot.load_extension('joinleave')
-        await bot.load_extension('embed')
+        await bot.load_extension('extension')
 
 @bot.event
 async def on_ready():
