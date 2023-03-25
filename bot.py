@@ -26,7 +26,7 @@ intents.members = True
 
 bot = discord.Client(intents=discord.Intents.default())
 bot = commands.Bot(command_prefix="?", intents=intents)
-extensions = ("responses","embed","joinleave","moderations",)
+extensions = ("embed","joinleave","moderation","responses",)
 
 @bot.event
 async def setup_hook():

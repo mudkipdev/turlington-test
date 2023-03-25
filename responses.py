@@ -13,21 +13,21 @@ class responses(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @bot.listen()
-    async def on_message(message: discord.Message) -> None:
+    @bot.listen
+    async def mentioned(message: discord.Message) -> None:
         print('Turlington has been mentioned.')
         if bot.user.mentioned_in(message):
             await message.channel.send(f"Hello! I am Turlington, say `?command` for more info on what I can do! If you are having any issues with my functions please tag ian `<@288522211164160010>`.")
 
-    @bot.command(name= "commands")
-    async def _commands(ctx):
+    @bot.command
+    async def generalcommands(ctx):
         await ctx.send("__All commands use ? prefix__ \n**ping** - check the status of Turlington\n**mcserver** - provides minecraft server details \n**mcserverstatus** - shows current TNF Minecraft server status\n**redmserver** - provides redmserver details" )
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
         await channel.send(f"Command list access by {author}")
 
 
-    @bot.command()
+    @bot.command
     async def admincommands(ctx):
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
@@ -39,8 +39,7 @@ class responses(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
     
-
-    @bot.command()
+    @bot.command
     async def minecraftcommands(ctx):
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
