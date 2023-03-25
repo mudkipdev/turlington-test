@@ -31,7 +31,7 @@ extensions = ("responses","embed","joinleave","moderations",)
 @bot.event
 async def setup_hook():
     for extension in extensions:
-        await bot.load_extension('extension')
+        await bot.load_extension(extension)
 
 @bot.event
 async def on_ready():
