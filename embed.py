@@ -13,8 +13,8 @@ class Embed(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @bot.command
-    async def embed(ctx):
+    @bot.command()
+    async def embed(self, ctx):
         def check(message):
             return message.author == ctx.author and message.channel == ctx.channel
 
@@ -29,8 +29,8 @@ class Embed(commands.Cog):
     
         await ctx.send(embed=embed)
 
-    @bot.command
-    async def embednoauthor(ctx):
+    @bot.command()
+    async def embednoauthor(self, ctx):
         def check(message):
             return message.author == ctx.author and message.channel == ctx.channel
 

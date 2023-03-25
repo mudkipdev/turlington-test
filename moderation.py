@@ -18,7 +18,7 @@ class Moderation(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @bot.command
+    @bot.command()
     async def purge(ctx, num):
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
@@ -42,7 +42,7 @@ class Moderation(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
-    @bot.command
+    @bot.command()
     async def ban(ctx, user: discord.Member):
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
@@ -58,8 +58,8 @@ class Moderation(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
-    @bot.command
-    async def kick(ctx, user: discord.Member):
+    @bot.command()
+    async def kick(self, ctx, user: discord.Member):
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
         await channel.send(f"Kick command used by {author}")
@@ -74,8 +74,8 @@ class Moderation(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
-    @bot.command
-    async def mute(ctx, user: discord.Member):
+    @bot.command()
+    async def mute(self, ctx, user: discord.Member):
         channel = bot.get_channel(1086293466054656100)   
         author = ctx.author.name
         await channel.send(f"Mute command used by {author}")
@@ -91,8 +91,8 @@ class Moderation(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
-    @bot.command
-    async def unmute(ctx, user: discord.Member):
+    @bot.command()
+    async def unmute(self, ctx, user: discord.Member):
         channel = bot.get_channel(1086293466054656100)
         author = ctx.author.name
         await channel.send(f"Unmute command used by {author}")

@@ -17,7 +17,7 @@ from discord.utils import get
 from discord.ext import commands
 from dotenv import load_dotenv
 
-with open("bad_words.txt") as file: # bad-words.txt contains one blacklisted phrase per line
+with open("bad_words.txt") as file:
     bad_words = [bad_word.strip().lower() for bad_word in file.readlines()]
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
