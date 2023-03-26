@@ -8,7 +8,7 @@ class Joinleave(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @commands.Cog.listeners()
+    @commands.Cog.listener()
     async def on_member_join(self, member):
         channel = self.bot.get_channel(1077747721336799282)
         embed=discord.Embed(title="Welcome!",description=f"{member.mention} just joined the server! Make sure to give them a warm welcome!", color=0x00FFFF)

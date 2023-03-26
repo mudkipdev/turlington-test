@@ -11,7 +11,11 @@ class Responses(commands.Cog):
         print('Turlington has been mentioned.')
         if self.bot.user.mentioned_in(message):
             await message.channel.send(f"Hello! I am Turlington, say `?command` for more info on what I can do! If you are having any issues with my functions please tag ian `<@288522211164160010>`.")
-
+    
+    @commands.command()
+    async def ping(self, ctx):
+        await ctx.channel.send("ping")
+                       
     @commands.command()
     async def generalcommands(self, ctx):
         await ctx.send("__All commands use ? prefix__ \n**ping** - check the status of Turlington\n**mcserver** - provides minecraft server details \n**mcserverstatus** - shows current TNF Minecraft server status\n**redmserver** - provides redmserver details" )

@@ -101,7 +101,7 @@ class Moderation(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
-    @commands.event    
+    @commands.Cog.listener()   
     async def on_message(self, message):
         for bad_word in bad_words:
             if bad_word in message.content:

@@ -6,7 +6,7 @@ class Reactions(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @commands.event
+    @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         message_id = payload.message_id
         if message_id == 1080163076235595806:  #ID depends on message
@@ -198,7 +198,7 @@ class Reactions(commands.Cog):
             else:
                 print("Role not found")
 
-    @commands.event
+    @commands.Cog.listener()
     async def on_raw_reaction_remove(self,payload):
         message_id = payload.message_id
         if message_id == 1080163076235595806:
