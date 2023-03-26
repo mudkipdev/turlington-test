@@ -1,23 +1,17 @@
 import discord
 from discord.ext import commands
 
-intents = discord.Intents.all()
-intents.message_content = True
-intents.members = True 
-
-bot = commands.Bot(command_prefix="?", intents=intents)
-
 class Reactions(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
 
-    @bot.event
-    async def on_raw_reaction_add(payload):
+    @commands.event
+    async def on_raw_reaction_add(self, payload):
         message_id = payload.message_id
         if message_id == 1080163076235595806:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '❌':
                 role = discord.utils.get(guild.roles, id= 1080163217877254174)
@@ -38,7 +32,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '🟡':
                 role = discord.utils.get(guild.roles, id= 1080272712288718909)
@@ -59,7 +53,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '🔵':
                 role = discord.utils.get(guild.roles, id= 1080277850827001916)
@@ -80,7 +74,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '😎':
                 role = discord.utils.get(guild.roles, id= 1080278011280101486)
@@ -101,7 +95,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '⚫':
                 role = discord.utils.get(guild.roles, id= 1080272666830844054)
@@ -122,7 +116,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '💗':
                 role = discord.utils.get(guild.roles, id= 1080278269615689768)
@@ -143,7 +137,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '🧿':
                 role = discord.utils.get(guild.roles, id= 1080272432235032597)
@@ -164,7 +158,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '🐥':
                 role = discord.utils.get(guild.roles, id= 1080278571588784259)
@@ -185,7 +179,7 @@ class Reactions(commands.Cog):
             message_id = payload.message_id
         if message_id == 1080270435880546384:  #ID depends on message
             guild_id = payload.guild_id
-            guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
+            guild = discord.utils.find(lambda g : g.id == guild_id, self.bot.guilds)
 
             if payload.emoji.name == '🔴':
                 role = discord.utils.get(guild.roles, id= 1080272351423385680)
@@ -204,12 +198,12 @@ class Reactions(commands.Cog):
             else:
                 print("Role not found")
 
-    @bot.event
-    async def on_raw_reaction_remove(payload):
+    @commands.event
+    async def on_raw_reaction_remove(self,payload):
         message_id = payload.message_id
         if message_id == 1080163076235595806:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '❌':
                 role = discord.utils.get(guild.roles, id= 1080163217877254174)
@@ -230,7 +224,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '🟡':
                 role = discord.utils.get(guild.roles, id= 1080272712288718909)
@@ -251,7 +245,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '🔵':
                 role = discord.utils.get(guild.roles, id= 1080277850827001916)
@@ -272,7 +266,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '😎':
                 role = discord.utils.get(guild.roles, id= 1080278011280101486)
@@ -293,7 +287,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '⚫':
                 role = discord.utils.get(guild.roles, id= 1080272666830844054)
@@ -314,7 +308,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '💗':
                 role = discord.utils.get(guild.roles, id= 1080278269615689768)
@@ -335,7 +329,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '🧿':
                 role = discord.utils.get(guild.roles, id= 1080272432235032597)
@@ -356,7 +350,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '🐥':
                 role = discord.utils.get(guild.roles, id= 1080278571588784259)
@@ -377,7 +371,7 @@ class Reactions(commands.Cog):
         message_id = payload.message_id
         if message_id == 1080270435880546384:
             guild_id = payload.guild_id
-            guild = bot.get_guild(payload.guild_id)
+            guild = self.bot.get_guild(payload.guild_id)
 
             if payload.emoji.name == '🔴':
                 role = discord.utils.get(guild.roles, id= 1080272351423385680)

@@ -1,43 +1,38 @@
 import discord
 from discord.ext import commands
 
-intents = discord.Intents.all()
-intents.message_content = True
-intents.members = True 
-
-bot = commands.Bot(command_prefix="?", intents=intents)
 
 class Embed(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_member = None
 
-    @bot.command()
+    @commands.command()
     async def embed(self, ctx):
         def check(message):
             return message.author == ctx.author and message.channel == ctx.channel
 
         await ctx.send('Waiting for a title')
-        title = await bot.wait_for('message', check=check)
+        title = await self.bot.wait_for('message', check=check)
   
         await ctx.send('Waiting for a description')
-        desc = await bot.wait_for('message', check=check)
+        desc = await self.bot.wait_for('message', check=check)
 
         embed = discord.Embed(title=title.content, description=desc.content, color=0x1ABC9C)
         embed.set_author(name="Turlington", icon_url="https://i.imgur.com/YiAvyZb.jpg")
     
         await ctx.send(embed=embed)
 
-    @bot.command()
+    @commands.command()
     async def embednoauthor(self, ctx):
         def check(message):
             return message.author == ctx.author and message.channel == ctx.channel
 
         await ctx.send('Waiting for a title')
-        title = await bot.wait_for('message', check=check)
+        title = await self.bot.wait_for('message', check=check)
   
         await ctx.send('Waiting for a description')
-        desc = await bot.wait_for('message', check=check)
+        desc = await self.bot.wait_for('message', check=check)
 
         embed = discord.Embed(title=title.content, description=desc.content, color=0x1ABC9C)
     
