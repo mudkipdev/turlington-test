@@ -60,6 +60,7 @@ class Gameservers(commands.Cog):
         author = ctx.author.name
         await channel.send(f"MC Server start command used by {author}")
         role = discord.utils.get(ctx.guild.roles, name="admin")
+        role = discord.utils.get(ctx.guild.roles, name="minecraft admin")
         if role in ctx.author.roles:
             API.Core.Start()
             await ctx.send("The Minecraft server is starting, please allow a moment or two before attempting to connect.")
@@ -73,6 +74,7 @@ class Gameservers(commands.Cog):
         author = ctx.author.name
         await channel.send(f"MC Server stop command used by {author}")
         role = discord.utils.get(ctx.guild.roles, name="admin")
+        role = discord.utils.get(ctx.guild.roles, name="minecraft admin")
         if role in ctx.author.roles:
             API.Core.Stop()
             await ctx.send("The Minecraft server is stopping, please allow a moment for all functions to come to a halt and world to properly save.")
@@ -84,6 +86,7 @@ class Gameservers(commands.Cog):
     async def mcservercommand(self, ctx, *args):
         arguments = ' '.join(args)
         role = discord.utils.get(ctx.guild.roles, name="admin")
+        role = discord.utils.get(ctx.guild.roles, name="minecraft admin")
         if role in ctx.author.roles:
             API.Core.SendConsoleMessage(f"{arguments}")
             await ctx.send("Your command has been sent.")
@@ -100,6 +103,7 @@ class Gameservers(commands.Cog):
         author = ctx.author.name
         await channel.send(f"{cmd} has been broadcast to the MC server by {author}")
         role = discord.utils.get(ctx.guild.roles, name="admin")
+        role = discord.utils.get(ctx.guild.roles, name="minecraft admin")
         if role in ctx.author.roles:
             API.Core.SendConsoleMessage("say " + cmd)
             await ctx.send("Your message has been broadcasted.")
