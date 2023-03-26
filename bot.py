@@ -25,7 +25,7 @@ intents = discord.Intents.all()
 intents.message_content = True
 intents.members = True 
 
-extensions = ("embed","joinleave","moderation","responses","jishaku", "reactions",)
+extensions = ("embed","joinleave","moderation","responses","jishaku", "reactions", "gameservers")
 bot = commands.Bot(command_prefix="?", intents=intents)
 
 @bot.event

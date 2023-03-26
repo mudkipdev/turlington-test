@@ -29,15 +29,15 @@ class Gameservers(commands.Cog):
         self.bot = bot
         self._last_member = None
 
-    @commands.command(name='mcserver')
-    async def send_data(self, ctx):
+    @commands.command()
+    async def minecraftserver(self, ctx):
         await ctx.send("**Server Type:** Public Vanilla \n**Server IP/Connection:** .")
         channel = self.bot.get_channel(1086293466054656100)
         author = ctx.author.name
         await channel.send(f"MC Server info command used by {author}")
 
-    @commands.command(name='redmserver')
-    async def send_data(self, ctx):
+    @commands.command()
+    async def redmserver(self, ctx):
         await ctx.send("**Server Type:** Public Vanilla \n**Server IP/Connection:**  or search TNF in launcher.")
         channel = self.bot.get_channel(1086293466054656100)
         author = ctx.author.name
@@ -45,8 +45,8 @@ class Gameservers(commands.Cog):
 
         await ctx.send("Hello! I am here.")
 
-    @commands.command(name= 'mcserverstatus')
-    async def mcserver(self, ctx):
+    @commands.command()
+    async def mcserverstatus(self, ctx):
         status = server.status()
         print("The server is online and replied in {0} ms".format(status.latency))
         await ctx.channel.send("The server is online with {0} players and replied in {1}ms".format(status.players.online, status.latency))
@@ -54,8 +54,8 @@ class Gameservers(commands.Cog):
         author = ctx.author.name
         await channel.send(f"MC Server status command used by {author}")
 
-    @commands.command(name= 'mcserverstart')
-    async def mcserver_start(self, ctx):
+    @commands.command()
+    async def mcserverstart(self, ctx):
         channel = self.bot.get_channel(1086293466054656100)
         author = ctx.author.name
         await channel.send(f"MC Server start command used by {author}")
@@ -67,8 +67,8 @@ class Gameservers(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
-    @commands.command(name= 'mcserverstop')
-    async def mcserver_stop(self, ctx):
+    @commands.command()
+    async def mcserverstop(self, ctx):
         channel = self.bot.get_channel(1086293466054656100)
         author = ctx.author.name
         await channel.send(f"MC Server stop command used by {author}")
@@ -80,8 +80,8 @@ class Gameservers(commands.Cog):
         else:
             await ctx.send("Sorry, you dont have the required permissions to perform this command!")
 
-    @commands.command(name= 'mcservercommand')
-    async def mcserver_command(self, ctx, *args):
+    @commands.command()
+    async def mcservercommand(self, ctx, *args):
         arguments = ' '.join(args)
         role = discord.utils.get(ctx.guild.roles, name="admin")
         if role in ctx.author.roles:
@@ -94,8 +94,8 @@ class Gameservers(commands.Cog):
         author = ctx.author.name
         await channel.send(f"{arguments} command sent to MC console by {author}")
 
-    @commands.command(name= 'mcservermessage')
-    async def mcserver_broadcast(self, ctx, cmd):
+    @commands.command()
+    async def mcservermessage(self, ctx, cmd):
         channel = self.bot.get_channel(1086293466054656100)
         author = ctx.author.name
         await channel.send(f"{cmd} has been broadcast to the MC server by {author}")
